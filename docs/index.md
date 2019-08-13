@@ -16,6 +16,5 @@ then system proposes word sequence which refers to the objects and their relatio
 This model behind this system is using a pretrained convolutional neural networks to understand visual features and
 a recurrent neural language model to generate these descriptions. 
 
-Follow this link:
-https://mehdi.ghanimifard.com/apl-esslli-19-material/demo.html
+Follow this link: [demo.html](demo.html)
  
