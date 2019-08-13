@@ -131,12 +131,12 @@
   <section id="about_page" class="page">
       <h3>About the demo</h3>
       <p style="text-align: left;">
-        The neural networks in this demo are built with <a href="https://keras.io/">Keras</a>, then ported for <a href="https://js.tensorflow.org/">Tensorflow.js</a>. 
-        The model is trained on 100K images from <a href="http://visualgenome.org">VisualGenome's relatinoships dataset</a> 
-        with average 15 descrptions per image.
         For convenience of the online demo, we used <a href="https://keras.io/applications/#mobilenetv2">a pretrained mobilenet</a> to extract visual features.
         In addition to convolutional features, the bouning box arrangements are encoded as a <span style="color: green">vector of spatial features</span>. 
         Vectorisation of the spatial relation between bounding boxes is based on the method in <a href="https://viske.cs.washington.edu/paper/fsadeghi_VisKE_ext.pdf">Sadeghi et al. (2015)</a>.
+        The neural networks in this demo all are built on python <a href="https://keras.io/">Keras</a>, then ported for <a href="https://js.tensorflow.org/">Tensorflow.js</a>. 
+        The model is trained on 100K images from <a href="http://visualgenome.org">VisualGenome's relatinoships dataset</a> 
+        with average 15 descrptions per image for 5 epochs with 80 batches.
       </p>
   </section>
   
