@@ -13,8 +13,9 @@ also reports how each word in connected to feature representations.
 You need to specify an image, and two objects in the image, 
 then system proposes word sequence which refers to the objects and their relations.
 
-This model behind this system is using a pretrained convolutional neural networks to understand visual features and
-a recurrent neural language model to generate these descriptions. 
+The neural network model behind this system is using a pretrained convolutional neural networks to extraxt visual features and
+a recurrent neural language model to learn contextual embeddings. 
+We used sampling with beam search to generate these descriptions. 
 
 Follow this link: [demo.html](https://mehdi.ghanimifard.com/apl-esslli-19-material/demo.html)
  
