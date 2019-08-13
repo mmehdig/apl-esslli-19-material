@@ -73,7 +73,11 @@ function refreshConvas(image, objs, objsConvas, target='canvas', obj_size=IMG_SI
 		
 		ctx.beginPath();
 		ctx.rect(x,y,w,h);
-		ctx.strokeStyle = colors[index];
+		if (obj_size != IMG_SIZE) { // if it is visualisation of the final page
+			ctx.strokeStyle = 'green';
+		} else {
+			ctx.strokeStyle = colors[index];
+		}
 		ctx.lineWidth = 3;
 		ctx.stroke();
 	});
