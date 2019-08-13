@@ -174,7 +174,7 @@ async function predict(imgElements, sf) {
 
     };
     let results = [];
-    const out = search(model_predict_fn, 8);
+    const out = search(model_predict_fn, 5);
     out.forEach(function(item, index) {
       results.push({
         'logprob': item[0],
