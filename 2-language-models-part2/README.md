@@ -14,7 +14,7 @@ You can change the model and try other architectures as well.
 (optional) Additionally, you can take a look at how the simple captioning model is trained and defined [train_flickr30k_captions.ipynb](train_flickr30k_captions.ipynb).
 In order, to train a new model on Flickr 30K dataset you need to download and process images separately. 
 
-You can also try other solutions for fusing word embeddings with visual features, for example:
+For example, fusing word embeddings with visual features in other architectures, such as:
 
 ![](architecture_merge.png)
 
