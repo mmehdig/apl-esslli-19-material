@@ -1,6 +1,15 @@
 # Hands-on Robot Operating System (ROS)
 
-This is a quick tutorial for ROS and plactical example on how to setup environment to run python applications inlcuding image classification. 
+This is a quick tutorial for ROS 
+With some plactical examples. 
+On fist section,
+You are going to learn 
+how to setup the workspace,
+how to run nodes and 
+how to write nodes with python.
+Then on second section,
+you are going to run a simple object recognition 
+as a node which can process images from camera sensors. 
 
 ## Requirements
 
