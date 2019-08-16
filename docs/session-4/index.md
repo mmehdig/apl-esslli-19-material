@@ -40,15 +40,15 @@ printenv | grep ROS
 The result must be something like this:
 
 ```
-ROS_ROOT=/opt/ros/kinetic/share/ros
-ROS_PACKAGE_PATH=/opt/ros/kinetic/share
+ROS_ROOT=/opt/ros/melodic/share/ros
+ROS_PACKAGE_PATH=/opt/ros/melodic/share
 ROS_MASTER_URI=http://localhost:11311
 ROSLISP_PACKAGE_DIRECTORIES=
-ROS_DISTRO=kinetic
-ROS_ETC_DIR=/opt/ros/kinetic/etc/ros
+ROS_DISTRO=melodic
+ROS_ETC_DIR=/opt/ros/melodic/etc/ros
 ```
 
-Run `source /opt/ros/kinetic/setup.bash` if the environment was not ready.
+Run `source /opt/ros/melodic/setup.bash` if the environment was not ready.
 
 
 #### 1.2. Create a Workspace
