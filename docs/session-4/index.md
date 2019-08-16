@@ -15,11 +15,11 @@ as a node which can can take images from camera sensors.
 
 * [Virtual Box (latest version) + extension pack](https://www.virtualbox.org/wiki/Downloads)
 * Download and run [Ubuntu-18.04-ROS-Melodic.ova](https://gubox.box.com/shared/static/1d4h3alkkx8i9noo7jx4xsy1gjdd0l5a.ova)
-
+(`apluser`: `aplgu`)
 Or
 
 * Ubuntu 16.04 or 18.04
-* ROS Kinetik or Melodic
+* ROS Kinetic or Melodic
 
 ## 1. Dive Into ROS
 
@@ -76,7 +76,7 @@ echo $ROS_PACKAGE_PATH
 ```
 
 The workspace forlder is part of the `ROS_PACKAGE_PATH` for example
-`/home/<username>/ros_ws/src:/opt/ros/kinetic/share`
+`/home/<username>/ros_ws/src:/opt/ros/melodic/share`
 
 In order to understand the ROS file system and folders follow [the ROS tutorial](http://wiki.ros.org/ROS/Tutorials/NavigatingTheFilesystem). 
 
