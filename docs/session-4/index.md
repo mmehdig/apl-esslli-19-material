@@ -16,7 +16,10 @@ as a node which can can take images from camera sensors.
 * [Virtual Box (latest version) + extension pack](https://www.virtualbox.org/wiki/Downloads)
 * Download and run [Ubuntu-18.04-ROS-Melodic.ova](https://gubox.box.com/shared/static/1d4h3alkkx8i9noo7jx4xsy1gjdd0l5a.ova)
 (`apluser`: `aplgu`)
+
+
 Or
+
 
 * Ubuntu 16.04 or 18.04
 * ROS Kinetic or Melodic
@@ -271,7 +274,7 @@ It is very common to have several nodes running which depend on each other at th
 
 ## 2. Image Classification With Tensorflow On ROS
 
-Download `keras-application.py`.
+Download `keras-application.py` from [the hands-on repository.](https://github.com/mmehdig/apl-esslli-19-material/)
 
 We are going to use an object classifier implemented in Keras as a node in ROS which can capture images from camera nodes.
 
