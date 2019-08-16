@@ -18,7 +18,7 @@ Most part of this section is also covered in more details in [ROS official tutor
 
 Follow these steps:
 
-### 1.1. Manage the shell environment
+#### 1.1. Manage the shell environment
 
 Run this:
 
@@ -40,7 +40,7 @@ ROS_ETC_DIR=/opt/ros/kinetic/etc/ros
 Run `source /opt/ros/kinetic/setup.bash` if the environment was not ready.
 
 
-### 1.2. Create a Workspace
+#### 1.2. Create a Workspace
 'catkin' is a build system based on CMake and extended with Python.
 most famouse IDEs have their own build system to maintain processes 
 related to maintainig packages in a project and run them for test.
@@ -69,7 +69,7 @@ The workspace forlder is part of the `ROS_PACKAGE_PATH` for example
 
 In order to understand the ROS file system and folders follow [the ROS tutorial](http://wiki.ros.org/ROS/Tutorials/NavigatingTheFilesystem). 
 
-### 1.3. Create and build a package
+#### 1.3. Create and build a package
 
 Within the workspace for your projects, you can have several packages. 
 each package is a folder containing the minimum specifications of its 
@@ -93,7 +93,7 @@ catkin_make
 For more details you can read the documentations and follow more advanced
 tutorials in the [wiki.ros.org](wiki.ros.org).
 
-### 1.4. Running ROS and your programs in ROS
+#### 1.4. Running ROS and your programs in ROS
 ROS needs its core program runing in background. The easiest way to run it is as following:
 ```
 roscore
@@ -232,7 +232,7 @@ rosrun this_tutorial hello.py
 rosrun this_tutorial feedback.py
 ```
 
-### 1.5. Record topics (optional)
+#### 1.5. Record topics (optional)
 
 We often need to record all topics at once to be able to replicate them later. ROS provide this with `rosbag`. First, you can create a folder for saving it on a file:
 
@@ -253,18 +253,18 @@ Later, you can just play the nodes without running them:
 rosbag play <your bagfile>
 ```
 
-### 1.6. Explore ROS tutorials
+#### 1.6. Explore ROS tutorials
 
 It is very common to have several nodes running which depend on each other at the same time. The command for running them at once can be packed into a `roslaunch` script. You can read about this among other related topics in [ROS tutorials](http://wiki.ros.org/ROS/Tutorials). 
 
 
-## 2. Process Images With Tensorflow 
+## 2. Image Classification With Tensorflow On ROS
 
 Download `keras-application.py`.
 
 We are going to use an object classifier implemented in Keras as a node in ROS which can capture images from camera nodes.
 
-### 2.1. Publish static images
+#### 2.1. Publish static images
 
 Before testing the application with camera, you can publish an image with `image_publisher`: 
 ```
@@ -284,7 +284,7 @@ rostopic echo /image_publisher_1569131230810381230/image_raw
 This is going to echo numerical representation of the image. 
 
 
-### 2.2. Visualisation with rviz
+#### 2.2. Visualisation with rviz
 
 You can visualise images using `rviz`. This tool is designed for visualising robots and sensors. Open `rviz` with the following command:
 ```
@@ -318,5 +318,7 @@ OpenCV is going to open a window from camera content. Pressing `r` will run the 
 ```
 rosrun this_tutorial feedback.py
 ```
+
+
 
 
