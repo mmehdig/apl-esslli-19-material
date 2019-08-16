@@ -1,5 +1,7 @@
 # Hands-on Robot Operating System (ROS)
 
+This is a quick tutorial for ROS and plactical example on how to setup environment to run python applications inlcuding image classification. 
+
 ## Requirements
 
 * [Virtual Box (latest version) + extension pack](https://www.virtualbox.org/wiki/Downloads)
@@ -10,9 +12,9 @@ Or
 * Ubuntu 16.04 or 18.04
 * ROS Kinetik or Melodic
 
-## 1. A Quick Tutorial To Start With ROS
+## 1. Dive Into ROS
 
-In this tutorial, we provide essential information and examples to build a ros worksace, and run python programs in ROS. 
+In this section, we provide essential information and examples to build a ros worksace, and run python programs in ROS. 
 
 Most part of this section is also covered in more details in [ROS official tutorials](http://wiki.ros.org/ROS/Tutorials).
 
@@ -266,9 +268,9 @@ We are going to use an object classifier implemented in Keras as a node in ROS w
 
 #### 2.1. Publish static images
 
-Before testing the application with camera, you can publish an image with `image_publisher`: 
+If you don't have a camera, you can publish an image or an avi movie with `image_publisher`: 
 ```
-rosrun image_publisher image_publisher <path_to_a_test_image>
+rosrun image_publisher image_publisher <path_to_an_image>
 ```
 
 In another terminal, you can check if the relevat topics are published. List all topics:
@@ -276,49 +278,54 @@ In another terminal, you can check if the relevat topics are published. List all
 rostopic list
 ```
 
-There should be several topics starting with `/image_publisher`. You can try to read the data signal:
+If the node is running properly, there should be several topics related to `/image_publisher`. For example, `/image_publisher_<random-number>/image_raw`. You can try to read the data signal with echo command:
 ```
-rostopic echo /image_publisher_1569131230810381230/image_raw
+rostopic echo /image_publisher_<random-number>/image_raw
 ```
 
-This is going to echo numerical representation of the image. 
+However, this is going to echo numerical representation of the image. 
 
 
 #### 2.2. Visualisation with rviz
 
-You can visualise images using `rviz`. This tool is designed for visualising robots and sensors. Open `rviz` with the following command:
+A simple way to see an image signal is to use `image_view`. For example, you can view the image in `image_publisher` topic:
+```
+rosrun image_view image_view image:=/image_publisher_<random-number>/image_raw
+```
+
+You can also visualise images and other sensors using `rviz`. This tool provides graphical interface for visualising robots and sensors. Open `rviz` with the following command:
 ```
 rosrun rviz rviz
 ```
-
-Add a new sensor, find image, after adding image, set the topic. This will show you the image. 
-
-When working with virtual machine, using rviz is not recommended becuase it requires a lot of memory and processing time.
+Then add a new sensor and configure the related topic for it. When running ROS in virtual box, using rviz is not recommended becuase it requires a lot of memory and processing time.
 
 ### 2.3. Publish from webcam
 
-You can publish most webcams using `usb_cam`:
+You can capture most webcams using `usb_cam` in ROS:
 ```
 rosrun usb_cam usb_cam_node
 ```
 
-### 2.4. Run `keras-application.py`
+### 2.4. Run `keras-application.py` node
 
 After downloading the code `keras-application.py`, try to understand the code. 
-Place the file in `~/ros_ws/src/this_tutorial/src/keras-application.py`, make sure it is executable with `chmod +x'.
-This node requires raw images with its source of sensor. 
-Modify the subscription info in `keras-application.py` according to the topic which is publishing images/video.
+
+Place the file in `~/ros_ws/src/this_tutorial/src/keras-application.py`, make sure it is executable with `chmod +x keras-application.py` similar to other codes. This node is going to read image signals as a ROS sensor message. Then, it provides simple interface for classifyinf the image content.
+
+Before running the node, you need to make sure that this node is subscribed to the correct topic. Modify last two lines in `keras-application.py`. Change the topic name in `sub = rospy.Subscriber("/camera/rgb/image_color", Image, callback)`  according to the topic which you are publishing images/video.
 
 ```
 rosrun this_tutorial keras-application.py
 ```
 
-OpenCV is going to open a window from camera content. Pressing `r` will run the recognition process and `q` exits the window. In another terminal you can read the published messages as before with running the feedback application:
+OpenCV is going to open a window from camera content. Pressing `r` will run the recognition process and `q` exits the window. In another terminal you can read the published messages as before with running the feedback node:
 
 ```
 rosrun this_tutorial feedback.py
 ```
 
 
+#### Contacts
 
+Contact Mehdi Ghanimifard (mehdi.ghanimifard@gu.se) for questions and help.
 
