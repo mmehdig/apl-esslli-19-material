@@ -34,13 +34,13 @@ Follow these steps:
 
 #### 1.1. Manage the shell environment
 
-Run this:
+Open a terminal, then run this:
 
 ```
 printenv | grep ROS
 ```
 
-The result must be something like this:
+The result must be something like:
 
 ```
 ROS_ROOT=/opt/ros/melodic/share/ros
@@ -51,53 +51,62 @@ ROS_DISTRO=melodic
 ROS_ETC_DIR=/opt/ros/melodic/etc/ros
 ```
 
-Run `source /opt/ros/melodic/setup.bash` if the environment was not ready.
+If you can't find these settings, run `source /opt/ros/melodic/setup.bash`.
+
+The default installation of ROS sets up these parameters however, it is important to understand that these settings are critiacl for running ROS on terminal environment. 
 
 
 #### 1.2. Create a Workspace
-'catkin' is a build system based on CMake and extended with Python.
-most famouse IDEs have their own build system to maintain processes 
-related to maintainig packages in a project and run them for test.
-catkin prepare dependencies and the code to be build and run for ros.
-This is how you can create a catkin workspace which you can write python 
-codes for ros:
+
+After setting up terminal environment, you need to have a workspace to be able to run and execute a process.
+For exmaple, most famouse IDEs have their own build system to maintain processes 
+regarding package management, maintaing all project files and run tests and delivering the finalised package.
+To manage these processes for ROS, we use `catkin`.  
+Catkin is a build system based on CMake that is extended for Python as well.
+With catkin we can manage dependencies, build and run programs for ROS.
+
+Here is a quick way to create a catkin workspace, then we can move on to write a python 
+codes for ROS:
+
+1. Open a terminal window
+2. Create a directory for your workspace (e.g. `~/ros_ws`)
+3. Run the shell command to make the workspace:
 ```
 mkdir -p ~/ros_ws/src
 cd ~/ros_ws/
 catkin_make
 ```
 
-Now that the folder is ready to be used as a ros workspace, you must source
-this workspace for shell environment:
+After you built the workspace, you must source this workspace for shell environment:
 ```
 source devel/setup.bash
 ```
 
-In order to check if this is correct:
+You can check if it has correctly added the workspace in your repository:
 ```
 echo $ROS_PACKAGE_PATH
 ```
 
-The workspace forlder is part of the `ROS_PACKAGE_PATH` for example
+This must show that the workspace directory is part of the `ROS_PACKAGE_PATH`:
 `/home/<username>/ros_ws/src:/opt/ros/melodic/share`
 
 In order to understand the ROS file system and folders follow [the ROS tutorial](http://wiki.ros.org/ROS/Tutorials/NavigatingTheFilesystem). 
 
 #### 1.3. Create and build a package
 
-Within the workspace for your projects, you can have several packages. 
-each package is a folder containing the minimum specifications of its 
-CMake build and the required packages.
+In a workspace for your projects, you can have several packages. 
+Each package is a directory in `src`, containing the minimum specifications of its 
+CMake build and the dependencies with required packages.
 
-Using the command line tool `catkin_create_pkg` is an easy way to initialize
-a new package: `catkin_create_pkg <package_name> [depend1] [depend2] [depend3]`
-As an example, we create a package for this tutorial as following:
+You can use terminal command `catkin_create_pkg` to initialize
+a package with its dependencies: `catkin_create_pkg <package_name> [depend1] [depend2] [depend3]`
+For this tutorial, we create a package as following:
 ```
 cd ~/ros_ws/src
 catkin_create_pkg this_tutorial std_msgs rospy
 ```
 
-Now you need to rebuild the workspace, and source it again:
+After adding a new package, you need to rebuild the workspace, and source it again:
 ```
 cd ~/ros_ws/
 catkin_make
@@ -108,32 +117,33 @@ For more details you can read the documentations and follow more advanced
 tutorials in the [wiki.ros.org](wiki.ros.org).
 
 #### 1.4. Running ROS and your programs in ROS
-ROS needs its core program runing in background. The easiest way to run it is as following:
+ROS is a message passing framework, which depends on a master core program.
+The easiest way to run the master core is to open a terminal and run the following:
 ```
 roscore
 ```
 
-`roscore` starts the master process with one node. We can see list of nodes 
+`roscore` starts the master process. We can always list all nodes 
 with the following command:
 ```
 rosnode list
 ```
 
 *HINTS: you can run commands with nohup in background: `nohup roscore &`
-but in this tutorial, it is easier to open each process in separate terminals*
+but in this tutorial, it is easier if we open each process in separate terminals.*
 
-The next step is to run a python code in ros.
-here we show how to write a python code in the package folder and run it.
-then we will expand this small program to become a node in ROS.
+The next step is to run a python code in ROS.
+Here is how to write a python code, in your package folder.
+We will expand this small program to become a node in ROS.
 
-First, let's run a hello world for ros:
+First, let's write and run a python hello world for ROS:
 ```
 echo '#!/usr/bin/env python
 print("hello rosrun!")
 ' > ~/ros_ws/src/this_tutorial/src/hello.py
 ```
 
-It needs to be executable as well: 
+Second, the python code must be executable to be able to work with ROS: 
 ```
 chmod +x ~/ros_ws/src/this_tutorial/src/hello.py
 ```
@@ -146,8 +156,7 @@ rosrun this_tutorial hello.py
 *HINT: you can kill nodes with `ctrl+c`*
 
 Next step is to make it persistent.
-In order make it a valid ros node we just need to assign it a name,
-and tell the ros master.
+In order make it a valid ROS node, we just need to assign it a name and initiate it as a Node (e.g. `greeter`).
 ```
 echo '#!/usr/bin/env python
 import rospy
@@ -159,7 +168,7 @@ while not rospy.is_shutdown():
 ' > ~/ros_ws/src/this_tutorial/src/hello.py
 ```
 
-Now, if you run it again it stays open:
+Now, if we run it again, this time it shoudl stay open:
 ```
 rosrun this_tutorial hello.py
 ```
