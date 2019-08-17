@@ -282,7 +282,7 @@ It is very common to have several nodes running which depend on each other at th
 
 ## 2. Image Classification With Tensorflow On ROS
 
-Download `keras-application.py` from [the hands-on repository.](https://github.com/mmehdig/apl-esslli-19-material/)
+Download `keras-application.py` from [the hands-on repository.](https://github.com/mmehdig/apl-esslli-19-material/4-hands-on-ros/src)
 
 We are going to use an object classifier implemented in Keras as a node in ROS which can capture images from camera nodes.
 
