@@ -2,7 +2,7 @@ In this tutorial, we are going to use Convolutional Neural Networks for image de
 
 The main notebook file and source code [here](https://github.com/mmehdig/apl-esslli-19-material/tree/master/2-language-models-part1/encoder-decoder_image_description.ipynb).
 
-You can also run the tutorial in Google Colab [here](https://colab.research.google.com/github/mmehdig/apl-esslli-19-material/blob/master/2-language-models-part2/encoder-decoder_image_description.ipynb
+You can also run the tutorial in Google Colab [here](https://colab.research.google.com/github/mmehdig/apl-esslli-19-material/blob/master/2-language-models-part2/encoder-decoder_image_description.ipynb).
 
 The architecture of the simple model is as follows:
 
