@@ -113,8 +113,8 @@ catkin_make
 . ~/ros_ws/devel/setup.bash
 ```
 
-For more details you can read the documentations and follow more advanced
-tutorials in the [wiki.ros.org](wiki.ros.org).
+For more details, and extra practice visit the documentations and follow more [advanced
+tutorials](http://wiki.ros.org/ROS/Tutorials).
 
 #### 1.4. Running ROS and your programs in ROS
 ROS is a message passing framework, which depends on a master core program.
@@ -152,9 +152,6 @@ This is how you can run it:
 ```
 rosrun this_tutorial hello.py
 ```
-
-*HINT: you can kill nodes with `ctrl+c`*
-
 Next step is to make it persistent.
 In order make it a valid ROS node, we just need to assign it a name and initiate it as a Node (e.g. `greeter`).
 ```
@@ -173,7 +170,9 @@ Now, if we run it again, this time it shoudl stay open:
 rosrun this_tutorial hello.py
 ```
 
-You can check its info, in another terminal:
+*HINT: you can kill nodes with `ctrl+c`*
+
+You can check the information about this node, in another terminal:
 ```
 rosnode info \greeter
 ```
@@ -333,13 +332,13 @@ After downloading the code `keras-application.py`, try to understand the code.
 
 Place the file in `~/ros_ws/src/this_tutorial/src/keras-application.py`, make sure it is executable with `chmod +x keras-application.py` similar to other codes. This node is going to read image signals as a ROS sensor message. Then, it provides simple interface for classifyinf the image content.
 
-Before running the node, you need to make sure that this node is subscribed to the correct topic. Modify last two lines in `keras-application.py`. Change the topic name in `sub = rospy.Subscriber("/camera/rgb/image_color", Image, callback)`  according to the topic which you are publishing images/video.
+Before running the node, you need to make sure that this node is subscribed to the correct topic. Modify last two lines in `keras-application.py`. Change the topic name in `sub = rospy.Subscriber("/camera/rgb/image_color", Image, callback)`  according to the topic which you are publishing images/video. Then run the node for object recognition.
 
 ```
 rosrun this_tutorial keras-application.py
 ```
 
-OpenCV is going to open a window from camera content. Pressing `r` will run the recognition process and `q` exits the window. In another terminal you can read the published messages as before with running the feedback node:
+If you are runing this process for the first time, it is very likely that keras needs to download the model. Next time you run this node, it doesn't need to download it again. After it loads the model, OpenCV is going to open a window which shows frames of video coming from the image topic published by camera. On this window, pressing `r` will run the prediction process and `q` exits the window. Each time you call for recognition, the results will be published in greeting topic. So, in another terminal you can read the published messages as before with running the feedback node:
 
 ```
 rosrun this_tutorial feedback.py
