@@ -27,9 +27,7 @@ Or
 
 In this section, we provide essential information and examples to build a ROS workspace and run Python programs in ROS.
 
-[ROS official tutorials](http://wiki.ros.org/ROS/Tutorials) cover a more detailed set of examples if you want more experience on each topic.
-
-Follow these steps:
+[ROS official tutorials](http://wiki.ros.org/ROS/Tutorials) cover a more detailed set of examples if you want more experience on each topic. Follow this tutorial for a step-by-step quick ROS introduction.
 
 #### 1.1. Manage the shell environment
 
