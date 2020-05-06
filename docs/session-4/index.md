@@ -13,7 +13,7 @@ as a node which can take images from camera sensors.
 ## Requirements
 
 * [Virtual Box (latest version) + extension pack](https://www.virtualbox.org/wiki/Downloads)
-* Download and run [Ubuntu-18.04-ROS-Melodic.ova](https://gubox.box.com/shared/static/1d4h3alkkx8i9noo7jx4xsy1gjdd0l5a.ova)
+* Download and run [Ubuntu-18.04-ROS-Melodic.ova](https://gubox.box.com/shared/static/796d46boulxmno2dsgwg531gbywot3b7.ova)
 (`apluser`: `aplgu`)
 
 
